@@ -1,0 +1,34 @@
+root@pve:~# apcaccess status
+APC      : 001,032,0745
+DATE     : 2025-06-02 10:44:15 -0500
+HOSTNAME : pve
+VERSION  : 3.14.14 (31 May 2016) debian
+UPSNAME  : pve
+CABLE    : USB Cable
+DRIVER   : USB UPS Driver
+UPSMODE  : Stand Alone
+STARTTIME: 2025-06-02 10:43:22 -0500
+MODEL    : CP1500AVRLCDa
+STATUS   : ONLINE
+LINEV    : 116.0 Volts
+LOADPCT  : 20.0 Percent
+BCHARGE  : 100.0 Percent
+TIMELEFT : 42.7 Minutes
+MBATTCHG : 5 Percent
+MINTIMEL : 3 Minutes
+MAXTIME  : 0 Seconds
+OUTPUTV  : 116.0 Volts
+DWAKE    : -1 Seconds
+LOTRANS  : 100.0 Volts
+HITRANS  : 139.0 Volts
+ALARMDEL : 30 Seconds
+NUMXFERS : 0
+TONBATT  : 0 Seconds
+CUMONBATT: 0 Seconds
+XOFFBATT : N/A
+SELFTEST : NO
+STATFLAG : 0x05000008
+SERIALNO : CTHGQ2003960
+NOMINV   : 120 Volts
+NOMPOWER : 900 Watts
+END APC  : 2025-06-02 10:44:22 -0500

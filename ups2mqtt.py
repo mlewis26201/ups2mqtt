@@ -1,0 +1,29 @@
+import subprocess
+import json
+import paho.mqtt.client as mqtt
+
+# MQTT configuration
+MQTT_BROKER = "mqtt.local"      # Change to your broker address
+MQTT_PORT = 1883
+MQTT_TOPIC = "ups/server-status"
+
+def get_apc_status():
+    result = subprocess.run(['apcaccess', 'status'], capture_output=True, text=True)
+    lines = result.stdout.strip().splitlines()
+    data = {}
+    for line in lines:
+        if ':' in line:
+            key, value = line.split(':', 1)
+            data[key.strip()] = value.strip()
+    return data
+
+def publish_to_mqtt(data):
+    client = mqtt.Client()
+    client.connect(MQTT_BROKER, MQTT_PORT, 60)
+    payload = json.dumps(data)
+    client.publish(MQTT_TOPIC, payload)
+    client.disconnect()
+
+if __name__ == "__main__":
+    status = get_apc_status()
+    publish_to_mqtt(status)
