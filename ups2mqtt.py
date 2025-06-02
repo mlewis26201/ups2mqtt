@@ -1,6 +1,7 @@
 import subprocess
 import json
 import paho.mqtt.client as mqtt
+import time
 
 # MQTT configuration
 MQTT_BROKER = "mqtt.local"      # Change to your broker address
@@ -25,5 +26,8 @@ def publish_to_mqtt(data):
     client.disconnect()
 
 if __name__ == "__main__":
-    status = get_apc_status()
-    publish_to_mqtt(status)
+    UPDATE_INTERVAL = 60  # seconds
+    while True:
+        status = get_apc_status()
+        publish_to_mqtt(status)
+        time.sleep(UPDATE_INTERVAL)
